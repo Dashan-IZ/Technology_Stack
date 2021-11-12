@@ -80,7 +80,83 @@
 
 <br>
 
+### 五、`Dubbo`支持的协议
 
+`Dubbo`支持多种协议：
 
+`dubbo` 、`hessian`、`rmi` 、`http`、`webservice`、`thrift`、`memcached`、`redis`
 
+`Dubbo`官方推荐使用`dubbo`协议
+
+`dubbo`协议默认端口`20880 `
+
+使用`dubbo`协议，`spring`配置文件加入：
+
+```xml
+<dubbo:protocol name="dubbo" port="20880"/>
+```
+
+<br>
+
+<br>
+
+### 六、`Dubbo`的使用
+
+- ###### 直连方式一：
+
+  - 创建`Empty Project`工程，命名为`link-dubbo-project`
+
+    - 创建子工程`Maven-webapp`，命名为`001-link-userservice-provider`
+
+      - 删除其他依赖，添加以下依赖
+
+        - ```xml
+          <dependencies>
+                  <!-- spring-context -->
+                  <dependency>
+                      <groupId>org.springframework</groupId>
+                      <artifactId>spring-context</artifactId>
+                      <version>5.3.12</version>
+                  </dependency>
+                  <!-- spring-webmvc -->
+                  <dependency>
+                      <groupId>org.springframework</groupId>
+                      <artifactId>spring-webmvc</artifactId>
+                      <version>5.3.12</version>
+                  </dependency>
+          
+                  <!-- alibaba-dubbo -->
+                  <dependency>
+                      <groupId>com.alibaba</groupId>
+                      <artifactId>dubbo</artifactId>
+                      <version>2.6.11</version>
+                  </dependency>
+              </dependencies>
+          
+              <build>
+                  <resources>
+                      <resource>
+                          <directory>src/main/java</directory>
+                          <includes>
+                              <include>**/*.properties</include>
+                              <include>**/*.xml</include>
+                          </includes>
+                          <filtering>false</filtering>
+                      </resource>
+                  </resources>
+                  <plugins>
+                      <plugin>
+                          <artifactId>maven-compiler-plugin</artifactId>
+                          <version>3.8.1</version>
+                          <configuration>
+                              <source>17</source>
+                              <target>17</target>
+                              <encoding>UTF-8</encoding>
+                          </configuration>
+                      </plugin>
+                  </plugins>
+              </build>
+          ```
+
+    - 
 
